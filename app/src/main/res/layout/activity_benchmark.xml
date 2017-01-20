@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+android:background="@color/colorPrimaryDark"
+android:orientation="vertical"
+tools:context=".Benchmark"
+    android:weightSum="1">
+
+<TextView
+    android:id="@+id/textView1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Benchmark_Sequence.Activate"
+    android:textSize="15dp"
+    android:textColor="@color/colorPrimary"/>
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="20dp"
+        android:text="Initiating processing power generation..."
+        android:onClick="onBeginClick"
+        android:textColor="@color/colorPrimary"
+        style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"/>
+
+    <TextView
+    android:id="@+id/textView2"
+    android:layout_width="378dp"
+    android:layout_marginTop="30dp"
+    android:layout_height="460dp"
+        android:contentDescription="The code for processing power generation"
+        android:scrollbarAlwaysDrawVerticalTrack="true" />
+
+</LinearLayout>
