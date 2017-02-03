@@ -13,30 +13,40 @@ android:orientation="vertical"
 tools:context=".Benchmark"
     android:weightSum="1">
 
-<TextView
-    android:id="@+id/textView1"
+    <TextView
+    android:id="@+id/txtTitle"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="Benchmark_Sequence.Activate"
-    android:textSize="15dp"
-    android:textColor="@color/colorPrimary"/>
+    android:textSize="25dp"
+    android:textColor="@color/colorPrimary"
+    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     <Button
-        android:id="@+id/btn1"
+        android:text="Click here to Initiate processing power generation"
+        android:textColor="@color/colorAccent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:textSize="20dp"
-        android:text="Initiating processing power generation..."
         android:onClick="onBeginClick"
-        android:textColor="@color/colorPrimary"
-        style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"/>
+        android:id="@+id/btnStart"
+        android:background="@android:drawable/editbox_dropdown_light_frame"
+        android:elevation="0dp"
+        android:layout_weight="0.03" />
 
     <TextView
-    android:id="@+id/textView2"
-    android:layout_width="378dp"
-    android:layout_marginTop="30dp"
-    android:layout_height="460dp"
-        android:contentDescription="The code for processing power generation"
-        android:scrollbarAlwaysDrawVerticalTrack="true" />
+    android:id="@+id/txtTerminal"
+        android:textColor="@color/codecolour"
+        android:layout_width="376dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="400dp"
+        android:hapticFeedbackEnabled="false"
+        android:layout_weight="0.19" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnNext"
+        android:onClick="sendMessage"/>
 
 </LinearLayout>
