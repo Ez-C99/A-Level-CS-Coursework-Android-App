@@ -71,9 +71,9 @@ public class Benchmark extends AppCompatActivity {
 
     public void sendMessage(View view)
     {
-        Intent myIntent = new Intent(Benchmark.this, FirstMission.class);                           //The activity change which isn't working
+        /*Intent myIntent = new Intent(Benchmark.this, FirstMission.class);                           //The activity change which isn't working
         myIntent.putExtra("key", value); //Optional parameters
-        Benchmark.this.startActivity(myIntent);
+        Benchmark.this.startActivity(myIntent);*/
     }
 
     public void scoreOutput() {

@@ -19,12 +19,14 @@ public class ScoreMod extends Benchmark {
     }
 
     public void modify() {
-        if (benchDone == true) {                                                                        //Check if inherited boolean done then modify
+        /*if (benchDone == true) {                                                                        //Check if inherited boolean done then modify
             modScore = benchScore;                                                                      //scores
             //modBattery(benchScore);
             processingpower = modScore + modRAM(benchScore) / 2;
             result.setText("...\n...\n[terminal]Score modification procedures complete\n\n[terminal]Modified score = " + processingpower);
-        }
+        }*/
+
+        result.setText("Testing");
     }
 
     public Integer modRAM(int noModRAM){

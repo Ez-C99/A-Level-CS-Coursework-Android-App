@@ -19,34 +19,38 @@ tools:context=".Benchmark"
     android:layout_height="wrap_content"
     android:text="Benchmark_Sequence.Activate"
     android:textSize="25dp"
-    android:textColor="@color/colorPrimary"
+    android:textColor="@color/codecolour"
     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     <Button
         android:text="Click here to Initiate processing power generation"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/codecolour"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onBeginClick"
         android:id="@+id/btnStart"
         android:background="@android:drawable/editbox_dropdown_light_frame"
         android:elevation="0dp"
-        android:layout_weight="0.03" />
+        android:layout_weight="0.03"
+        tools:background="@color/colorPrimary" />
 
     <TextView
     android:id="@+id/txtTerminal"
         android:textColor="@color/codecolour"
         android:layout_width="376dp"
         android:layout_marginTop="30dp"
-        android:layout_height="400dp"
+        android:layout_height="392dp"
         android:hapticFeedbackEnabled="false"
-        android:layout_weight="0.19" />
+        android:layout_weight="0.53"
+        android:background="@drawable/terminalborder"/>
 
     <Button
-        android:text="Button"
+        android:text="Proceed to machine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnNext"
-        android:onClick="sendMessage"/>
+        android:onClick="sendMessage"
+        tools:textColor="@color/codecolour"
+        tools:background="@color/colorPrimary"/>
 
 </LinearLayout>
