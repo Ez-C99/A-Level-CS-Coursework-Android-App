@@ -6,7 +6,6 @@ import android.widget.TextView;
 
 public class ScoreMod extends Benchmark {
     public Integer modScore;
-    public Integer processingpower;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,15 +17,13 @@ public class ScoreMod extends Benchmark {
         modify();
     }
 
-    public void modify() {
-        /*if (benchDone == true) {                                                                        //Check if inherited boolean done then modify
-            modScore = benchScore;                                                                      //scores
-            //modBattery(benchScore);
-            processingpower = modScore + modRAM(benchScore) / 2;
-            result.setText("...\n...\n[terminal]Score modification procedures complete\n\n[terminal]Modified score = " + processingpower);
-        }*/
 
-        result.setText("Testing");
+    public void modify() {
+        if (benchDone) {                                                                        //Check if inherited boolean done then modify
+            modScore = benchScore;                                                              //scores
+            processingpower = (modScore + modRAM(benchScore)) / 2;
+        }
+
     }
 
     public Integer modRAM(int noModRAM){
@@ -35,8 +32,8 @@ public class ScoreMod extends Benchmark {
         activityManager.getMemoryInfo(RAM);                                                             //modifies the benchmark score accordingly
         double availableRAM = RAM.availMem / 0x100000L;
         double percentageRAM = RAM.availMem / RAM.totalMem;  //show percentage of available RAM
-        Integer RAMScore = ((int) percentageRAM) * noModRAM;
-        return RAMScore;
+        double RAMScore =  percentageRAM * noModRAM;
+        return (int) RAMScore;
     }
 
     //public void modStorage(){

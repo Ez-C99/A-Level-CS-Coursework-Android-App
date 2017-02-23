@@ -1,7 +1,5 @@
 package com.example.hacksafe;
 
-import android.app.ActivityManager;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,8 +13,6 @@ import android.widget.TextView;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import static android.R.attr.value;
 
 public class Benchmark extends AppCompatActivity {
 
@@ -80,14 +76,15 @@ public class Benchmark extends AppCompatActivity {
 
         Long avg = (timeSHA + timeMD) /2;
         benchScore = Math.round(avg);
+        benchDone = true;
+        ScoreMod scrmd = new ScoreMod();
+        scrmd.modify();
         result.setText("SHA-1 processing power score= " + timeSHA);
         result.setText("MD5 processing power score = "+ timeMD);
         result.setText("[terminal]/Initialising SHA-1 processing power generation...\n...\n... \n[terminal]SHA-1 processing power generation complete. \n \n[terminal]Initialising MD5 processing power generation...\n" +
                 "...\n" +
                 "... \n" +
-                "[terminal]MD5 processing power generation complete.\n[terminal]Benchmark module complete\nBenchmark score = " + benchScore + "\n \n[terminal]Initialising score modification procedures");
-        benchDone = true;
-        new ScoreMod();
+                "[terminal]MD5 processing power generation complete.\n[terminal]Benchmark module complete\nBenchmark score = " + benchScore + "\n \n[terminal]Initialising score modification procedures" + "...\n...\n[terminal]Score modification procedures complete\n\n[terminal]Modified score = " + processingpower);
     }
 
     public void onBeginClick(View view){
