@@ -14,6 +14,8 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import static java.lang.Thread.sleep;
+
 public class Benchmark extends AppCompatActivity {
 
     public TextView result;
@@ -65,12 +67,11 @@ public class Benchmark extends AppCompatActivity {
         Next = (Button) findViewById(R.id.btnNext);
     }
 
-    public void sendMessage(View view)
+    /*public void sendMessage(View view)
     {
-        /*Intent myIntent = new Intent(Benchmark.this, FirstMission.class);                           //The activity change which isn't working
-        myIntent.putExtra("key", value); //Optional parameters
-        Benchmark.this.startActivity(myIntent);*/
-    }
+        Intent gamescreen = new Intent(Benchmark.this, FirstMission.class);
+        startActivity(gamescreen);
+    }*/
 
     public void scoreOutput() {
 
@@ -78,13 +79,20 @@ public class Benchmark extends AppCompatActivity {
         benchScore = Math.round(avg);
         benchDone = true;
         ScoreMod scrmd = new ScoreMod();
-        scrmd.modify();
+        int gamepoints = scrmd.modify();
         result.setText("SHA-1 processing power score= " + timeSHA);
         result.setText("MD5 processing power score = "+ timeMD);
         result.setText("[terminal]/Initialising SHA-1 processing power generation...\n...\n... \n[terminal]SHA-1 processing power generation complete. \n \n[terminal]Initialising MD5 processing power generation...\n" +
                 "...\n" +
                 "... \n" +
-                "[terminal]MD5 processing power generation complete.\n[terminal]Benchmark module complete\nBenchmark score = " + benchScore + "\n \n[terminal]Initialising score modification procedures" + "...\n...\n[terminal]Score modification procedures complete\n\n[terminal]Modified score = " + processingpower);
+                "[terminal]MD5 processing power generation complete.\n[terminal]Benchmark module complete\nBenchmark score = " + benchScore + "\n \n[terminal]Initialising score modification procedures" + "...\n...\n[terminal]Score modification procedures complete\n\n[terminal]Modified score = " + gamepoints);
+        try {
+            sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        /*Intent gamescreen = new Intent(Benchmark.this, Game.class);
+        startActivity(gamescreen);*/
     }
 
     public void onBeginClick(View view){
@@ -92,7 +100,7 @@ public class Benchmark extends AppCompatActivity {
             encryptcount = 0;
             execSHA1Hash();
             execMD5Hash();
-            result.setText("Encryption algorithms running...");                                         //The procedure for the begin button click
+            result.setText("Encryption algorithms running...");                                     //The procedure for the begin button click
             //Add iteration for percentage counter
 
     }
