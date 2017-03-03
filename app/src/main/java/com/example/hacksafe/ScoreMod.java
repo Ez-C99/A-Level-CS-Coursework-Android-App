@@ -3,42 +3,40 @@ package com.example.hacksafe;
 import android.app.ActivityManager;
 import java.util.Calendar;
 
+import static android.content.Context.ACTIVITY_SERVICE;
+
 public class ScoreMod extends Benchmark {
 
-    public Integer gameprocessingpower;
+    public static Integer gameprocessingpower;
     private Integer noMod;
 
 
     public Integer modify() {
-        /*Benchmark benchmod = new Benchmark();
-        noMod = benchmod.benchScore;
-        gameprocessingpower = modTime();
-        return gameprocessingpower;*/
-        return 0;
+        noMod = Benchmark.benchScore;
+        gameprocessingpower = modTime(); /*+ modRAM() + noMod) / 2;*/       //Get an average of all the mods
+        return gameprocessingpower;
         }
-
-
 
 
     public Integer modRAM(){
-        ActivityManager.MemoryInfo RAM = new ActivityManager.MemoryInfo();
-        ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);     //The function that gets the available RAM and
-        activityManager.getMemoryInfo(RAM);                                                         //modifies the benchmark score accordingly
-        double availableRAM = RAM.availMem / 0x100000L;
-        double percentageRAM = RAM.availMem / RAM.totalMem;  //show percentage of available RAM
-        double RAMScore =  percentageRAM * noMod;
-        return (int) RAMScore;
+        ActivityManager.MemoryInfo RAM = new ActivityManager.MemoryInfo();      //Create a new instance of the Activity Manager of RAM
+        ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        activityManager.getMemoryInfo(RAM);                                        //Retrieve the RAM
+        double availableRAM = RAM.availMem / 0x100000L;                            //Convert the data to MB
+        double percentageRAM = RAM.availMem / RAM.totalMem;                        //Calculate percentage of available RAM
+        double RAMScore =  percentageRAM * noMod;               //Get an average to use as the modified score
+        return (int) RAMScore;                                  //Return the score to where it was caled from
     }
 
     public Integer modTime() {
-        Calendar today = Calendar.getInstance();
-        int hour = today.get(Calendar.HOUR_OF_DAY);
+        Calendar today = Calendar.getInstance();            //Create a new Calendar instance to acces data
+        int hour = today.get(Calendar.HOUR_OF_DAY);         //Get the hour of the day
         if(hour > 22 && hour <3){
-            long TimeScore = (long) (0.5 * noMod);
+            long TimeScore = (long) (0.5 * noMod);          //If the hour is very late in the night, half the user's score
             return (int) TimeScore;
         }
 
-        return noMod;
+        return noMod;               //Otherwise return the user's normal score
     }
 
 
