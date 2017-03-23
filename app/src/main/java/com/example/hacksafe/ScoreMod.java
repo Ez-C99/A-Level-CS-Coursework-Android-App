@@ -13,7 +13,7 @@ public class ScoreMod extends Benchmark {
 
     public Integer modify() {
         noMod = Benchmark.benchScore;
-        gameprocessingpower = modTime(); /*+ modRAM() + noMod) / 2;*/       //Get an average of all the mods
+        gameprocessingpower = modTime(); /*+ modRAM()) / 2;*/       //Get an average of all the mods
         return gameprocessingpower;
         }
 
